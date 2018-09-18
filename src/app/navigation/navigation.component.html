@@ -1,0 +1,22 @@
+<nav mat-tab-nav-bar class="main-nav" appRepaintOnScroll>
+  <a mat-tab-link
+    class="main-nav__link"
+    *ngFor="let city of cities"
+    [routerLink]="['/forecast', city.id]"
+    routerLinkActive
+    #rla="routerLinkActive"
+    [active]="rla.isActive">
+    <div class="main-nav__content">
+      <div class="main-nav__name">{{ city.name }}</div>
+      <div class="main-nav__loaded-info" *ngIf="loadedInfo">
+        <div class="main-nav__image">
+          <img [src]="city.iconUrl" alt="{{ city.description }}" width="50" height="50">
+        </div>
+        <div class="main-nav__weather" *ngIf="city.temperature !== undefined">
+          <span class="main-nav__temperature" [ngStyle]="{'color': 'rgb(' + city.rgb + ')'}">{{ city.temperature }}&deg;C</span>
+          <span class="main-nav__wind">{{ city.windSpeed }} m/sec</span>
+        </div>
+      </div>
+    </div>
+  </a>
+</nav>
