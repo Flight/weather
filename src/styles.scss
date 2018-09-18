@@ -1,0 +1,14 @@
+html {
+    background-color: #eeeeee;
+}
+body {
+    min-width: 320px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Roboto', sans-serif;
+    background-color: #ffffff;
+}
+
+.repaint-on-scroll {
+    box-shadow: 0 0 0 transparent;
+}

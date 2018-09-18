@@ -1,0 +1,41 @@
+<div *ngIf="showSelectMessage" class="forecast-select">
+  Please select the city.</div>
+
+<mat-spinner *ngIf="isLoading" class="forecast-spinner"></mat-spinner>
+
+<div class="forecast-chart">
+  <ngx-charts-line-chart [results]="chartsData" *ngIf="chartsData.length" [xAxis]="true" [yAxis]="true" [legend]="true">
+    <ng-template #seriesTooltipTemplate let-model="model">
+      <div>{{ model[0].name }}</div>
+      <div *ngFor="let mod of model">
+        {{ mod.series }} {{ mod.value }}&deg;C
+      </div>
+    </ng-template>
+  </ngx-charts-line-chart>
+</div>
+
+<div class="forecast__content" appRepaintOnScroll>
+  <div *ngIf="!isLoading && !showError && weatherList.length">
+    <ul class="forecast__list">
+      <li *ngFor="let weather of weatherList" class="forecast__item">
+        <div class="forecast__time">
+          {{ weather.timestamp | date:'HH:mm' }}
+        </div>
+        <div class="forecast_image">
+          <img [src]="weather.iconUrl" alt="{{ weather.description }}" width="50" height="50">
+        </div>
+        <div class="forecast__temperature" [ngStyle]="{'color': 'rgb(' + weather.rgb + ')'}">
+          {{ weather.temperature }}&deg;C
+        </div>
+        <div class="forecast__windspeed">
+          {{ weather.windSpeed }} m/sec
+        </div>
+        <div class="forecast__pressure">
+          {{ weather.pressure }}
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="showError">{{ errorMessage }}</div>
+</div>

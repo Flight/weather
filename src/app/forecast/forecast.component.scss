@@ -1,0 +1,77 @@
+@import '../mixins';
+
+.forecast {
+    &-select {
+        color: #5c6bc0;
+        font-size: 18px;
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    &-spinner {
+        margin: 50px auto;
+    }
+
+    &-chart {
+        max-width: 1000px;
+        height: 300px;
+        margin: 40px auto;
+    }
+
+    &__content {
+        padding: 20px 0;
+        overflow: auto;
+    }
+
+    &__list {
+        min-width: 600px;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        display: flex;
+        justify-content: space-around;
+        flex-flow: row nowrap;
+    }
+
+    &__item {
+        padding: 0 5px;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    &__time {
+        font-size: 16px;
+    }
+
+    &__windspeed {
+        font-size: 12px;
+        margin: 5px 0;
+    }
+
+    &__pressure {
+        color: #999999;
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 660px) {
+    .forecast {
+        &__content {
+            @include scroll-shadow();
+        }
+        &__list {
+            justify-content: space-between;
+        }
+    }
+
+    :host ::ng-deep .forecast-chart {
+        .ngx-charts {
+            float: none;
+            display: block;
+            margin: 0 auto;
+        }
+        .chart-legend {
+            display: none;
+        }
+    }
+}

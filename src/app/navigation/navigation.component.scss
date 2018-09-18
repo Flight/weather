@@ -1,0 +1,35 @@
+@import '../mixins';
+
+::ng-deep .mat-tab-links {
+    justify-content: space-between;
+    min-width: 660px;
+}
+
+.main-nav {
+    overflow: auto;
+
+    &__link {
+        min-width: 130px;
+        height: 110px;
+    }
+    &__name {
+        font-size: 16px;
+        color: #111111;
+    }
+    &__wind {
+        margin-left: 10px;
+    }
+}
+
+.mat-tab-label-active {
+    opacity: 1;
+    .main-nav__name {
+        color: #3f51b2;
+    }
+}
+
+@media (max-width: 660px) {
+    .main-nav {
+        @include scroll-shadow();
+    }
+}
