@@ -1,5 +1,7 @@
 # Weather widget
 
+[Link to test on github pages](https://flight.github.io/weather/).
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.4.
 
 It uses [Angular Material](https://material.angular.io/) version 6.4.7.
