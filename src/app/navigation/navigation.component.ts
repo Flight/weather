@@ -30,7 +30,7 @@ export class NavigationComponent implements OnInit {
   ) { }
 
   private assignWeatherToCity(weather: IWeatherDataMultiple) {
-    this.cities.map((city) => {
+    this.cities.forEach((city) => {
       const weatherData = weather.list.find((cityWeather: IWeatherData) => cityWeather.id === city.id);
 
       city.temperature = Math.round(weatherData.main.temp * 10) / 10;
