@@ -62,7 +62,7 @@ export class ForecastComponent {
 
     this.weatherList = [];
 
-    weatherList.map((item: IForecastListItem) => {
+    weatherList.forEach((item: IForecastListItem) => {
       const timeStamp = item.dt * 1000;
       const date = new Date(timeStamp);
 
